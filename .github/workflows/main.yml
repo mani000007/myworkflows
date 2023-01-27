@@ -17,9 +17,13 @@ jobs:
         aws-region: us-east-1
     - name: Run Docker container
       uses: docker/login-action@v1
-      with:
-        run: |
-          echo ${{ secrets.DOCKER_HUB_PASSWORD }} | docker login -u ${{ secrets.DOCKER_HUB_USERNAME }} --password-stdin
-          docker pull mani000007/first-python
-          docker run -d -p 80:80 mani000007/first-python
+    - name: Log in to Docker Hub
+      run: echo "${{ secrets.DOCKER_HUB_PASSWORD }}" | docker login -u "${{ secrets.DOCKER_HUB_USERNAME }}" --password-stdin
+    - name: run docker container
+      run: |
+        docker pull mani000007/first-python
+        docker run -d -p 80:80 mani000007/first-python
+
+
+   
 
