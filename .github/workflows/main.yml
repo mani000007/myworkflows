@@ -16,7 +16,7 @@ jobs:
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           AWS_DEFAULT_REGION: us-east-1
     - name: Run Docker container
-      uses: action/login_docker@v1
+      uses: docker/login_action@v1
       with:
         command: remote-exec
         args: |
