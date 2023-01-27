@@ -1,0 +1,9 @@
+name: Connect To Ec2
+on: workflow_dispatch
+     
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      -name: aws credentials
+  
